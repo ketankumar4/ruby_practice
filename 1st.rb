@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 def func(str)
-  x=Hash.new(0)
-  str.split("").each do |i|
-    if i.match?(/[A-Za-z]/)
-      x[i]=x[i]+1
-    end
+  x = Hash.new(0)
+  str.split('').each do |i|
+    x[i] = x[i] + 1 if i.match?(/[A-Za-z]/)
   end
-  puts x;
+  puts x
 end
-str = gets.chomp()
+puts 'give input'
+str = gets.chomp
+puts 'please provide input' if str.empty?
 func(str)

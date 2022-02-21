@@ -1,7 +1,11 @@
+# frozen_string_literal: true
+
 class String
   def to_s
-    str=self.swapcase
-    return str
+    swapcase
   end
 end
-puts "heLLo".to_s
+puts 'give input'
+str = gets.chomp
+puts 'please provide input' if str.empty?
+puts str.to_s

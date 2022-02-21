@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 def func(str)
-  n=str.length
-  i=0
-  while i<n
-    if str[i].match?(/[aeiouAEIOU]/)
-      str[i]="*"
-    end
-    i=i+1
+  n = str.length
+  i = 0
+  while i < n
+    str[i] = '*' if str[i].match?(/[aeiouAEIOU]/)
+    i += 1
   end
   puts str
 end
-str=gets.chomp()
+puts 'give input'
+str = gets.chomp
+puts 'please provide input' if str.empty?
 func(str)

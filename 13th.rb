@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 def fac(n)
-  x=1
-  for i in 1..n
-    x=x*i
+  x = 1
+  (1..n).each do |i|
+    x *= i
   end
-  return x
+  x
 end
-n=ARGV[0].to_i
+n = ARGV[0].to_i
 puts fac(n)

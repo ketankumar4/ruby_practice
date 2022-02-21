@@ -1,21 +1,25 @@
-lc=0
-uc=0
-nc=0
-sc=0
-str="heLLo Every1"
-def is_number? string
-  true if Float(string) rescue false
+# frozen_string_literal: true
+
+lc = 0
+uc = 0
+nc = 0
+sc = 0
+str = 'heLLo Every1'
+def is_number?(string)
+  true if Float(string)
+rescue StandardError
+  false
 end
-n=str.length
-for i in 0..n-1
+n = str.length
+(0..n - 1).each do |i|
   if str[i].match?(/[a-z]/)
-    lc=lc+1
+    lc += 1
   elsif  str[i].match?(/[A-Z]/)
-    uc=uc+1
-  elsif is_number?( str[i] )
-    nc=nc+1
+    uc += 1
+  elsif is_number?(str[i])
+    nc += 1
   else
-    sc=sc+1
+    sc += 1
   end
 end
 puts lc

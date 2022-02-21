@@ -1,11 +1,21 @@
+# frozen_string_literal: true
+
 def fib
-  x=0
-  y=1
-  while 1
+  x = 0
+  y = 1
+  loop do
     yield y
-    x,y=y,x+y
-    #y=x+y
+    x, y = y, x + y
+    # y=x+y
   end
 end
-n=gets.chomp.to_i
-fib { |x| break if x >= n; puts x } #it will stop calling fib
+puts 'give input'
+n = gets.chomp
+puts 'please provide input' if n.empty?
+n = n.to_i
+# it will stop calling fib
+fib do |x|
+  break if x >= n
+
+  print "#{x} "
+end

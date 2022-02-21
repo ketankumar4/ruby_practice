@@ -1,37 +1,29 @@
-require 'Time'
 # frozen_string_literal: true
-class Kes
-  attr_accessor :hr, :min, :sec, :nhr, :nmin, :nsec, :nday
-  def initialize(hr,min,sec)
-    @hr=hr
-    @min=min
-    @sec=sec
-  end
-  def show(nmin,nhr,nsec,nday)
-    print "#{@nday} days "
-    print "#{@nhr}:"
-    print "#{@nmin}:"
-    print "#{@nsec}\n"
-  end
-  def norm(min,hr,sec)
-    @nmin = min + sec/ 60
-    @nsec = sec % 60
-    @nhr = hr + min / 60
-    @nday = @nhr/24
-    @nhr = @nhr % 24
-    @nmin = min % 60
-    show(nmin,nhr,nsec,nday)
-  end
-  def add(t1,t2)
-    #temp=Kes.new(0,0,0)
-    @nsec = t1.sec + t2.sec
-    @nmin = t1.min + t2.min
-    @nhr = t1.hr + t2.hr
-    norm(nmin,nhr,nsec)
-    #return temp
-    #return temp
+
+require 'time'
+Regex = /^(([0-1]?\d)|(2?[0-3]))(:([0-5]\d)){2}$/.freeze
+def isval?(x)
+  Regex =~ x
+end
+
+def add(t)
+  k = t.split(',')
+  if k.each { |s| isval?(s) }
+    sum = k.map { |time| Time.parse(time) }.inject(0) do |memo, time|
+      memo += time.sec + time.min * 60 + time.hour * 3600
+    end
+    show(sum)
+  else
+    puts 'invalid input'
   end
 end
-t1=Kes.new(2,50,30)
-t2=Kes.new(4,20,34)
-t1.add(t1,t2)
+
+def show(sum)
+  days = sum / 86_400
+  p "#{days} & " if days.positive?
+  j = format('%02d:%02d:%02d', sum / 3600 % 24, sum / 60 % 60, sum % 60)
+  p j
+end
+puts 'enter times'
+t = gets.chomp
+add(t)
