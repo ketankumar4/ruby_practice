@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require 'time'
-Regex = /^(([0-1]?\d)|(2?[0-3]))(:([0-5]\d)){2}$/.freeze
+$regex = /^(([0-1]?\d)|(2?[0-3]))(:([0-5]\d)){2}$/.freeze
 def isval?(x)
-  Regex =~ x
+  $regex =~ x
 end
 
 def add(t)

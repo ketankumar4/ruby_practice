@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-def isp(n)
+def is_prime(n)
   return false if n <= 1
   return true if n <= 3
   return false if n.even? || (n % 3).zero?
@@ -15,5 +15,5 @@ def isp(n)
 end
 n = 7
 (2..n).each do |j|
-  puts "#{j} " if isp(j)
+  puts "#{j} " if is_prime(j)
 end

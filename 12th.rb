@@ -12,9 +12,9 @@ rescue StandardError
 end
 n = str.length
 (0..n - 1).each do |i|
-  if str[i].match?(/[a-z]/)
+  if str[i].match?(/[a..z]/)
     lc += 1
-  elsif  str[i].match?(/[A-Z]/)
+  elsif  str[i].match?(/[A..Z]/)
     uc += 1
   elsif is_number?(str[i])
     nc += 1

@@ -1,30 +1,30 @@
 # frozen_string_literal: true
 
 class Ket
-  attr_accessor :p, :t, :r, :si, :ci
+  attr_accessor :priciple, :time, :rate, :simple_interest, :compound_interest
 
   def initialize(p, t, r)
-    @p = p
-    @t = t
-    @r = r
+    @priciple = p
+    @time = t
+    @rate = r
     cal(p, r, t)
   end
 
-  def simp(p, r, t)
-    @si = p * (1 + r * t).to_f
-    puts si
+  def simple(p, r, t)
+    @simple_interest = p * (1 + r * t).to_f
+    puts simple_interest
   end
 
-  def com(p, r, _t)
-    @ci = p * ((1 + r / 12)**(12 * 2.5)).to_f
+  def compond(p, r, _t)
+    @compound_interest = p * ((1 + r / 12)**(12 * 2.5)).to_f
     # @ci=(p*((1+(r*0.1/12)**(12*t)))).to_f
-    puts ci
+    puts compound_interest
   end
 
   def cal(p, r, t)
-    simp(p, r, t)
-    com(p, r, t)
-    x = ci - si
+    simple(p, r, t)
+    compond(p, r, t)
+    x = compound_interest - simple_interest
     puts x.to_s
   end
 end

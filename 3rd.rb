@@ -9,13 +9,14 @@ def fib
     # y=x+y
   end
 end
-puts 'give input'
+puts "give input"
 n = gets.chomp
-puts 'please provide input' if n.empty?
-n = n.to_i
+if n.length()<1
+  puts "please provide input"
+end
+n=n.to_i
 # it will stop calling fib
 fib do |x|
   break if x >= n
-
   print "#{x} "
 end

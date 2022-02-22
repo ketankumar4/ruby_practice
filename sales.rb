@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-class Sales
-  t = {}
+
+ t = {}
   x = 1
   while x == 1
     puts 'name'
@@ -24,5 +24,3 @@ class Sales
     x = gets.chomp.to_i
   end
   p t
-end
-s = Sales.new
